@@ -43,6 +43,5 @@ private:
     QPushButton *setChannelNumberButton;
     QLineEdit *numberEdit;
     QLineEdit *channelNumberEdit;
-
 };
 #endif // WIDGET_H
