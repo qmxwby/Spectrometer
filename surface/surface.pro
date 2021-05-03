@@ -32,5 +32,5 @@ DISTFILES += \
     echarts.min.js \
     lineView.html
 
-LIBS += "D:\Document\QTproject\build-surface-Desktop_Qt_5_12_10_MinGW_64_bit-Debug\debug\ChromaticsDll.dll"
-LIBS += "D:\Document\QTproject\build-surface-Desktop_Qt_5_12_10_MinGW_64_bit-Debug\debug\FLA5000DLL.dll"
+LIBS += "../build-surface-Desktop_Qt_5_12_10_MinGW_64_bit-Debug\debug\ChromaticsDll.dll"
+LIBS += "../build-surface-Desktop_Qt_5_12_10_MinGW_64_bit-Debug\debug\FLA5000DLL.dll"
