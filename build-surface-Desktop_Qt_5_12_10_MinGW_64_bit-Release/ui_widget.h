@@ -292,9 +292,13 @@ public:
         spectList = new QListWidget(widget2);
         spectList->setObjectName(QString::fromUtf8("spectList"));
         spectList->setMinimumSize(QSize(0, 400));
+<<<<<<< HEAD
         spectList->setStyleSheet(QString::fromUtf8("QListWidget{\n"
 "	size: 400px;\n"
 "}"));
+=======
+        spectList->setStyleSheet(QString::fromUtf8(""));
+>>>>>>> 488d060bcf3dab6951b0fff5f7e31a5fe4a7effc
         spectList->setResizeMode(QListView::Adjust);
 
         verticalLayout_4->addWidget(spectList);

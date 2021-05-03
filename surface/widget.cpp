@@ -88,7 +88,10 @@ QString int2qstr(int x){
 float qstr2float(QString x){
     return x.toFloat();
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 488d060bcf3dab6951b0fff5f7e31a5fe4a7effc
 
 void Widget::on_scanningButton_pressed()
 {
@@ -103,8 +106,6 @@ void Widget::on_scanningButton_pressed()
            QMessageBox::information(NULL, "提示", "获取失败");
            return;
         }
-
-
         spectList->clear();
         comboBox->clear();
         for (int j = 0; j < iSpectorCount; j++)
@@ -115,8 +116,8 @@ void Widget::on_scanningButton_pressed()
             std::string sSN = (char*)pcSepctorInf[j].Sn;//光谱仪编号
             int iChannelNum = pcSepctorInf[j].iChannelNum;//通道号
             std::string sMode = (char*)pcSepctorInf[j].Mode;//型号
-            float fStartWave = pcSepctorInf[j].fWaveRange[0];//起始波长
-            float fEndWave = pcSepctorInf[j].fWaveRange[1];//结束波长
+//            float fStartWave = pcSepctorInf[j].fWaveRange[0];//起始波长
+//            float fEndWave = pcSepctorInf[j].fWaveRange[1];//结束波长
             std::string sDeviceName = pcSepctorInf[j].DeviceName;//设备名
             QString isSN = QString::fromStdString(sSN+"   "+std::to_string(iChannelNum));
             QString iChannelNum_str = QString::fromStdString(std::to_string(iChannelNum));
@@ -141,7 +142,7 @@ void Widget::on_scanningButton_pressed()
 
 void Widget::on_setChannelNumberButton_clicked()
 {
-    char*  ch=numberEdit->text().toLatin1().data();;
+    char*  ch=numberEdit->text().toLatin1().data();
 
     if (JF_USB_SetChannelNum(ch, channelNumberEdit->text().toInt()) == 0)
     {

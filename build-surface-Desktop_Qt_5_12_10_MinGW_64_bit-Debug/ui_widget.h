@@ -23,7 +23,6 @@
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QTextBrowser>
-#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -47,7 +46,7 @@ public:
     QPushButton *pushButton_4;
     QPushButton *pushButton_5;
     QPushButton *pushButton_6;
-    QTextEdit *textEdit_5;
+    QLineEdit *lineEdit_2;
     QWidget *widget1;
     QVBoxLayout *verticalLayout_5;
     QHBoxLayout *horizontalLayout_14;
@@ -56,7 +55,13 @@ public:
     QHBoxLayout *horizontalLayout_15;
     QLabel *label_16;
     QLineEdit *lineEdit_4;
+    QListWidget *listWidget;
+    QGroupBox *groupBox_4;
     QWidget *widget2;
+    QVBoxLayout *verticalLayout_6;
+    QLabel *label_17;
+    QLineEdit *lineEdit;
+    QWidget *widget3;
     QVBoxLayout *verticalLayout_4;
     QPushButton *scanningButton;
     QListWidget *spectList;
@@ -215,9 +220,12 @@ public:
         pushButton_6->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "	font-size: 20px;\n"
 "}"));
-        textEdit_5 = new QTextEdit(groupBox_3);
-        textEdit_5->setObjectName(QString::fromUtf8("textEdit_5"));
-        textEdit_5->setGeometry(QRect(60, 380, 311, 111));
+        lineEdit_2 = new QLineEdit(groupBox_3);
+        lineEdit_2->setObjectName(QString::fromUtf8("lineEdit_2"));
+        lineEdit_2->setGeometry(QRect(60, 390, 311, 91));
+        lineEdit_2->setStyleSheet(QString::fromUtf8("font: 16pt \"Agency FB\";"));
+        lineEdit_2->setAlignment(Qt::AlignCenter);
+        lineEdit_2->setReadOnly(true);
         widget1 = new QWidget(groupBox_3);
         widget1->setObjectName(QString::fromUtf8("widget1"));
         widget1->setGeometry(QRect(60, 110, 311, 91));
@@ -262,13 +270,41 @@ public:
 
         verticalLayout_5->addLayout(horizontalLayout_15);
 
-        widget2 = new QWidget(setting);
+        listWidget = new QListWidget(setting);
+        listWidget->setObjectName(QString::fromUtf8("listWidget"));
+        listWidget->setGeometry(QRect(760, 30, 251, 381));
+        groupBox_4 = new QGroupBox(setting);
+        groupBox_4->setObjectName(QString::fromUtf8("groupBox_4"));
+        groupBox_4->setGeometry(QRect(760, 440, 611, 331));
+        groupBox_4->setStyleSheet(QString::fromUtf8("QGroupBox{\n"
+"	font-size: 20px;\n"
+"	font-weight: bold;\n"
+"}"));
+        widget2 = new QWidget(groupBox_4);
         widget2->setObjectName(QString::fromUtf8("widget2"));
-        widget2->setGeometry(QRect(10, 26, 271, 738));
-        verticalLayout_4 = new QVBoxLayout(widget2);
+        widget2->setGeometry(QRect(50, 50, 141, 77));
+        verticalLayout_6 = new QVBoxLayout(widget2);
+        verticalLayout_6->setObjectName(QString::fromUtf8("verticalLayout_6"));
+        verticalLayout_6->setContentsMargins(0, 0, 0, 0);
+        label_17 = new QLabel(widget2);
+        label_17->setObjectName(QString::fromUtf8("label_17"));
+        label_17->setStyleSheet(QString::fromUtf8("font: 14pt \"Agency FB\";"));
+
+        verticalLayout_6->addWidget(label_17);
+
+        lineEdit = new QLineEdit(widget2);
+        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
+        lineEdit->setMinimumSize(QSize(0, 35));
+
+        verticalLayout_6->addWidget(lineEdit);
+
+        widget3 = new QWidget(setting);
+        widget3->setObjectName(QString::fromUtf8("widget3"));
+        widget3->setGeometry(QRect(10, 26, 271, 738));
+        verticalLayout_4 = new QVBoxLayout(widget3);
         verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
         verticalLayout_4->setContentsMargins(0, 0, 0, 0);
-        scanningButton = new QPushButton(widget2);
+        scanningButton = new QPushButton(widget3);
         scanningButton->setObjectName(QString::fromUtf8("scanningButton"));
         scanningButton->setMinimumSize(QSize(0, 0));
         QFont font;
@@ -289,17 +325,15 @@ public:
 
         verticalLayout_4->addWidget(scanningButton);
 
-        spectList = new QListWidget(widget2);
+        spectList = new QListWidget(widget3);
         spectList->setObjectName(QString::fromUtf8("spectList"));
         spectList->setMinimumSize(QSize(0, 400));
-        spectList->setStyleSheet(QString::fromUtf8("QListWidget{\n"
-"	size: 400px;\n"
-"}"));
+        spectList->setStyleSheet(QString::fromUtf8(""));
         spectList->setResizeMode(QListView::Adjust);
 
         verticalLayout_4->addWidget(spectList);
 
-        setChannelNumberButton = new QPushButton(widget2);
+        setChannelNumberButton = new QPushButton(widget3);
         setChannelNumberButton->setObjectName(QString::fromUtf8("setChannelNumberButton"));
         setChannelNumberButton->setMinimumSize(QSize(0, 0));
         setChannelNumberButton->setFont(font);
@@ -314,7 +348,7 @@ public:
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        label_2 = new QLabel(widget2);
+        label_2 = new QLabel(widget3);
         label_2->setObjectName(QString::fromUtf8("label_2"));
         label_2->setStyleSheet(QString::fromUtf8("QLabel{\n"
 "	font-size: 20px;\n"
@@ -326,7 +360,7 @@ public:
 
         horizontalLayout_2->addWidget(label_2);
 
-        numberEdit = new QLineEdit(widget2);
+        numberEdit = new QLineEdit(widget3);
         numberEdit->setObjectName(QString::fromUtf8("numberEdit"));
         numberEdit->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
 "	max-height: 30px;\n"
@@ -341,7 +375,7 @@ public:
 
         horizontalLayout_6 = new QHBoxLayout();
         horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
-        label_15 = new QLabel(widget2);
+        label_15 = new QLabel(widget3);
         label_15->setObjectName(QString::fromUtf8("label_15"));
         label_15->setStyleSheet(QString::fromUtf8("QLabel{\n"
 "	font-size: 20px;\n"
@@ -352,7 +386,7 @@ public:
 
         horizontalLayout_6->addWidget(label_15);
 
-        channelNumbeEdit = new QLineEdit(widget2);
+        channelNumbeEdit = new QLineEdit(widget3);
         channelNumbeEdit->setObjectName(QString::fromUtf8("channelNumbeEdit"));
         channelNumbeEdit->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
 "	max-height: 30px;\n"
@@ -688,8 +722,12 @@ public:
         pushButton_4->setText(QApplication::translate("Widget", "\350\256\276\347\275\256\347\247\257\345\210\206\346\227\266\351\227\264\345\222\214\351\207\207\346\240\267\346\254\241\346\225\260", nullptr));
         pushButton_5->setText(QApplication::translate("Widget", "\351\207\207\351\233\206\346\263\242\351\225\277\346\225\260\346\215\256", nullptr));
         pushButton_6->setText(QApplication::translate("Widget", "\350\216\267\345\217\226\345\244\226\350\247\246\345\217\221\344\277\241\345\217\267", nullptr));
+        lineEdit_2->setInputMask(QApplication::translate("Widget", "\346\224\266\345\210\260\350\247\246\345\217\221\344\277\241\345\217\267", nullptr));
+        lineEdit_2->setText(QApplication::translate("Widget", "\346\224\266\345\210\260\350\247\246\345\217\221\344\277\241\345\217\267", nullptr));
         label_6->setText(QApplication::translate("Widget", "\347\247\257\345\210\206\346\227\266\351\227\264", nullptr));
         label_16->setText(QApplication::translate("Widget", "\351\207\207\346\240\267\346\254\241\346\225\260", nullptr));
+        groupBox_4->setTitle(QApplication::translate("Widget", "\345\244\232\345\217\260\350\277\236\346\265\213", nullptr));
+        label_17->setText(QApplication::translate("Widget", "\350\266\205\346\227\266\346\227\266\351\227\264", nullptr));
         scanningButton->setText(QApplication::translate("Widget", "\346\211\253\346\217\217\345\205\211\350\260\261\344\273\252\345\210\227\350\241\250", nullptr));
         setChannelNumberButton->setText(QApplication::translate("Widget", "\350\256\276\347\275\256\351\200\232\351\201\223\345\217\267", nullptr));
         label_2->setText(QApplication::translate("Widget", "\347\274\226\345\217\267", nullptr));
