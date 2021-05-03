@@ -17,6 +17,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <QDebug>
+#include <QtCharts/QtCharts>
 // 构造函数
 Widget::Widget(QWidget *parent):
     QWidget(parent),
@@ -31,14 +32,7 @@ Widget::~Widget()
     delete ui;
 }
 
-void Widget::init(){
-    QChart * chart = new QChart();
-    QLineSeries * series = new QLineSeries();
-    for(int32_t i = 0; i < 100; i++){
-        series->append(i, sin(0.6f*i));
-    }
-    chart->addSeries(series);
-    chart->createDefaultAxes();
+void Widget::init(){ 
     spectList = ui->spectList;
     comboBox = ui->comboBox;
     scanningButton = ui->scanningButton;
@@ -51,8 +45,24 @@ void Widget::init(){
     timecountEdit = ui->lineEdit_4;
     getsignButton = ui->pushButton_6;
     getsignButton->setEnabled(false);
-}
 
+    // 画图
+    QLineSeries *series = new QLineSeries();
+    series->append(0, 6);
+    series->append(2, 4);
+    series->append(3, 8);
+    series->append(7, 4);
+    series->append(10, 5);
+    *series << QPointF(11, 1) << QPointF(13, 3) << QPointF(17, 6) << QPointF(18, 3) << QPointF(20, 2);
+
+    QChart *chart = new QChart();
+    chart->legend()->hide();
+    chart->addSeries(series);
+    chart->createDefaultAxes();
+    chart->setTitle("Simple line chart example");
+    ui->graphicsView->setChart(chart);
+    ui->graphicsView->setRenderHint(QPainter::Antialiasing);
+}
 // string to qstring
 QString str2Qstr(std::string str){
     QString res = QString::fromStdString(str);

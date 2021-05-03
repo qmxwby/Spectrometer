@@ -494,6 +494,16 @@
         </layout>
        </widget>
       </widget>
+      <widget class="QtCharts::QChartView" name="graphicsView">
+       <property name="geometry">
+        <rect>
+         <x>1030</x>
+         <y>31</y>
+         <width>341</width>
+         <height>381</height>
+        </rect>
+       </property>
+      </widget>
       <widget class="QWidget" name="">
        <property name="geometry">
         <rect>
@@ -1341,6 +1351,13 @@ p, li { white-space: pre-wrap; }
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QtCharts::QChartView</class>
+   <extends>QGraphicsView</extends>
+   <header>qchartview.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

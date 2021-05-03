@@ -25,6 +25,7 @@
 #include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
+#include "qchartview.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -70,6 +71,7 @@ public:
     QVBoxLayout *verticalLayout_6;
     QLabel *label_17;
     QLineEdit *lineEdit;
+    QtCharts::QChartView *graphicsView;
     QWidget *widget3;
     QVBoxLayout *verticalLayout_4;
     QPushButton *scanningButton;
@@ -334,6 +336,9 @@ public:
 
         verticalLayout_6->addWidget(lineEdit);
 
+        graphicsView = new QtCharts::QChartView(setting);
+        graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
+        graphicsView->setGeometry(QRect(1030, 31, 341, 381));
         widget3 = new QWidget(setting);
         widget3->setObjectName(QString::fromUtf8("widget3"));
         widget3->setGeometry(QRect(10, 26, 271, 738));
