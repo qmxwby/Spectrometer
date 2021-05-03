@@ -45,8 +45,14 @@ void Widget::init(){
     setChannelNumberButton = ui->setChannelNumberButton;
     numberEdit = ui->numberEdit;
     channelNumberEdit = ui->channelNumbeEdit;
+    normalradioButton = ui->radioButton;
+    softTouchButton = ui->pushButton_3;
+    timeEdit = ui->lineEdit_3;
+    timecountEdit = ui->lineEdit_4;
+    getsignButton = ui->pushButton_6;
+    getsignButton->setEnabled(false);
 }
-<<<<<<< HEAD
+
 // string to qstring
 QString str2Qstr(std::string str){
     QString res = QString::fromStdString(str);
@@ -78,10 +84,10 @@ int qstr2int(QString qstr){
 QString int2qstr(int x){
     return QString::number(x);
 }
-=======
-
-
->>>>>>> f05559c10257e11dd86a6dc3ffbbe5dd5ff86fc8
+// qstring to float
+float qstr2float(QString x){
+    return x.toFloat();
+}
 
 
 void Widget::on_scanningButton_pressed()
@@ -122,7 +128,8 @@ void Widget::on_scanningButton_pressed()
         if (comboBox->count() > 0)
         {
              comboBox->setCurrentIndex(0);
-             //radioButton1.Checked = true;
+
+             normalradioButton->setChecked(true);
              QString sSN_str = QString::fromStdString((char*)pcSepctorInf[0].Sn);
              QString iChannelNum_str = QString::fromStdString(std::to_string(pcSepctorInf[0].iChannelNum));
              numberEdit->setText(sSN_str);
@@ -143,4 +150,76 @@ void Widget::on_setChannelNumberButton_clicked()
     }
     on_scanningButton_pressed();
     QMessageBox::information(NULL,"提示","通道设定成功");
+}
+
+//软触发一次
+void Widget::on_pushButton_3_clicked()
+{
+    if (JF_USB_SoftTriggerStartSampleMux(qstr2int(channelNumberEdit->text())) == 0)
+    {
+          QMessageBox::information(NULL,"提示","开启失败！");
+          return;
+     }
+     QMessageBox::information(NULL,"提示","已触发，请采样取走数据！");
+}
+
+//设置软触发
+void Widget::on_radioButton_clicked()
+{
+    if (normalradioButton->isChecked())
+    {
+         if (JF_USB_ExternalTriggerSetModeMux(qstr2int(channelNumberEdit->text()), 0) == 0)
+         {
+              QMessageBox::information(NULL,"提示","设置失败");
+              return;
+          }
+           softTouchButton->setEnabled(true);
+           getsignButton->setEnabled(false);
+          QMessageBox::information(NULL,"提示","设置成功");
+      }
+}
+
+void Widget::on_pushButton_4_clicked()
+{
+    if (JF_USB_SetIntegrationTimeFMux(qstr2int(channelNumberEdit->text()), qstr2float(timeEdit->text())) == 0)
+    {
+          QMessageBox::information(NULL,"提示","设定失败！");
+          return;
+     }
+
+     JF_USB_SetSampleAveMux(qstr2int(channelNumberEdit->text()), qstr2int(timecountEdit->text()));
+     QMessageBox::information(NULL,"提示","设定成功！");
+}
+
+float fwaveData[420];
+void Widget::on_pushButton_5_clicked()
+{
+    if (JF_USB_GetWaveDataMux(qstr2int(channelNumberEdit->text()), 380, 780, 1, fwaveData) == 0)
+    {
+          QMessageBox::information(NULL,"提示","采集1失败！");
+          return;
+    }
+
+//    listBox1.Items.Clear();
+//    for (int i = 0; i <= 400; i++)
+//    {
+//          listBox1.Items.Add((380 + i) + "\t" + fwaveData[i].ToString("0"));
+//     }
+//     pictureBox1.Refresh();
+}
+
+void Widget::on_pushButton_6_clicked()
+{
+    int iState = 0;
+    JF_USB_ExternalTriggerGetDataReadyStateMux(qstr2int(channelNumberEdit->text()), &iState);
+//    if (iState == 0)
+//    {
+//          label1.Text = "未触发";
+//          label1.BackColor = Color.Red;
+//    }
+//    else
+//    {
+//          label1.Text = "收到触发信号";
+//          label1.BackColor = Color.Transparent;
+//    }
 }
