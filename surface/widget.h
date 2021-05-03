@@ -30,11 +30,10 @@ public:
 
 private slots:
     void init();
-    void on_pushButton_clicked();
 
-    void on_pushButton_pressed();
+    void on_scanningButton_pressed();
 
-    void on_listWidget_itemClicked(QListWidgetItem *item);
+    void on_setChannelNumberButton_clicked();
 
 private:
     Ui::Widget *ui;
