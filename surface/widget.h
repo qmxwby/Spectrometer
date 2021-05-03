@@ -45,6 +45,8 @@ private slots:
 
     void on_pushButton_6_clicked();
 
+    void on_radioButton_2_clicked();
+
 private:
     Ui::Widget *ui;
     QListWidget *spectList;
@@ -53,14 +55,13 @@ private:
     QPushButton *setChannelNumberButton;
     QLineEdit *numberEdit;
     QLineEdit *channelNumberEdit;
-<<<<<<< HEAD
     QRadioButton *normalradioButton;
+    QRadioButton *enradioButton;
     QPushButton *softTouchButton;
     QLineEdit *timeEdit;
     QLineEdit *timecountEdit;
     QPushButton *getsignButton;
-
-=======
->>>>>>> 488d060bcf3dab6951b0fff5f7e31a5fe4a7effc
+    QListWidget *dataList;
+    QLineEdit *SignLine;
 };
 #endif // WIDGET_H

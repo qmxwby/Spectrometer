@@ -37,7 +37,7 @@ public:
     QGroupBox *groupBox;
     QComboBox *comboBox;
     QGroupBox *groupBox_2;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QHBoxLayout *horizontalLayout_13;
     QRadioButton *radioButton_2;
     QRadioButton *radioButton;
@@ -47,7 +47,7 @@ public:
     QPushButton *pushButton_5;
     QPushButton *pushButton_6;
     QLineEdit *lineEdit_2;
-    QWidget *widget1;
+    QWidget *layoutWidget1;
     QVBoxLayout *verticalLayout_5;
     QHBoxLayout *horizontalLayout_14;
     QLabel *label_6;
@@ -57,11 +57,20 @@ public:
     QLineEdit *lineEdit_4;
     QListWidget *listWidget;
     QGroupBox *groupBox_4;
-    QWidget *widget2;
+    QPushButton *pushButton;
+    QPushButton *pushButton_2;
+    QPushButton *pushButton_7;
+    QPushButton *pushButton_8;
+    QPushButton *pushButton_9;
+    QPushButton *pushButton_10;
+    QPushButton *pushButton_11;
+    QPushButton *pushButton_12;
+    QPushButton *pushButton_13;
+    QWidget *layoutWidget2;
     QVBoxLayout *verticalLayout_6;
     QLabel *label_17;
     QLineEdit *lineEdit;
-    QWidget *widget3;
+    QWidget *layoutWidget3;
     QVBoxLayout *verticalLayout_4;
     QPushButton *scanningButton;
     QListWidget *spectList;
@@ -73,7 +82,7 @@ public:
     QLabel *label_15;
     QLineEdit *channelNumbeEdit;
     QWidget *params;
-    QWidget *layoutWidget;
+    QWidget *layoutWidget4;
     QHBoxLayout *horizontalLayout_12;
     QVBoxLayout *verticalLayout_2;
     QHBoxLayout *horizontalLayout;
@@ -169,23 +178,23 @@ public:
 "	font-size: 20px;\n"
 "	font-weight: bold;\n"
 "}"));
-        widget = new QWidget(groupBox_2);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(30, 30, 411, 61));
-        horizontalLayout_13 = new QHBoxLayout(widget);
+        layoutWidget = new QWidget(groupBox_2);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        layoutWidget->setGeometry(QRect(30, 30, 411, 61));
+        horizontalLayout_13 = new QHBoxLayout(layoutWidget);
         horizontalLayout_13->setObjectName(QString::fromUtf8("horizontalLayout_13"));
         horizontalLayout_13->setContentsMargins(0, 0, 0, 0);
-        radioButton_2 = new QRadioButton(widget);
+        radioButton_2 = new QRadioButton(layoutWidget);
         radioButton_2->setObjectName(QString::fromUtf8("radioButton_2"));
 
         horizontalLayout_13->addWidget(radioButton_2);
 
-        radioButton = new QRadioButton(widget);
+        radioButton = new QRadioButton(layoutWidget);
         radioButton->setObjectName(QString::fromUtf8("radioButton"));
 
         horizontalLayout_13->addWidget(radioButton);
 
-        pushButton_3 = new QPushButton(widget);
+        pushButton_3 = new QPushButton(layoutWidget);
         pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
         pushButton_3->setMaximumSize(QSize(250, 16777215));
         pushButton_3->setStyleSheet(QString::fromUtf8("QPushButton{\n"
@@ -226,20 +235,20 @@ public:
         lineEdit_2->setStyleSheet(QString::fromUtf8("font: 16pt \"Agency FB\";"));
         lineEdit_2->setAlignment(Qt::AlignCenter);
         lineEdit_2->setReadOnly(true);
-        widget1 = new QWidget(groupBox_3);
-        widget1->setObjectName(QString::fromUtf8("widget1"));
-        widget1->setGeometry(QRect(60, 110, 311, 91));
-        verticalLayout_5 = new QVBoxLayout(widget1);
+        layoutWidget1 = new QWidget(groupBox_3);
+        layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
+        layoutWidget1->setGeometry(QRect(60, 110, 311, 91));
+        verticalLayout_5 = new QVBoxLayout(layoutWidget1);
         verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
         verticalLayout_5->setContentsMargins(0, 0, 0, 0);
         horizontalLayout_14 = new QHBoxLayout();
         horizontalLayout_14->setObjectName(QString::fromUtf8("horizontalLayout_14"));
-        label_6 = new QLabel(widget1);
+        label_6 = new QLabel(layoutWidget1);
         label_6->setObjectName(QString::fromUtf8("label_6"));
 
         horizontalLayout_14->addWidget(label_6);
 
-        lineEdit_3 = new QLineEdit(widget1);
+        lineEdit_3 = new QLineEdit(layoutWidget1);
         lineEdit_3->setObjectName(QString::fromUtf8("lineEdit_3"));
         lineEdit_3->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
 "	max-height: 50px;\n"
@@ -253,12 +262,12 @@ public:
 
         horizontalLayout_15 = new QHBoxLayout();
         horizontalLayout_15->setObjectName(QString::fromUtf8("horizontalLayout_15"));
-        label_16 = new QLabel(widget1);
+        label_16 = new QLabel(layoutWidget1);
         label_16->setObjectName(QString::fromUtf8("label_16"));
 
         horizontalLayout_15->addWidget(label_16);
 
-        lineEdit_4 = new QLineEdit(widget1);
+        lineEdit_4 = new QLineEdit(layoutWidget1);
         lineEdit_4->setObjectName(QString::fromUtf8("lineEdit_4"));
         lineEdit_4->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
 "	max-height: 50px;\n"
@@ -280,31 +289,58 @@ public:
 "	font-size: 20px;\n"
 "	font-weight: bold;\n"
 "}"));
-        widget2 = new QWidget(groupBox_4);
-        widget2->setObjectName(QString::fromUtf8("widget2"));
-        widget2->setGeometry(QRect(50, 50, 141, 77));
-        verticalLayout_6 = new QVBoxLayout(widget2);
+        pushButton = new QPushButton(groupBox_4);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setGeometry(QRect(210, 50, 121, 41));
+        pushButton_2 = new QPushButton(groupBox_4);
+        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
+        pushButton_2->setGeometry(QRect(350, 50, 121, 41));
+        pushButton_7 = new QPushButton(groupBox_4);
+        pushButton_7->setObjectName(QString::fromUtf8("pushButton_7"));
+        pushButton_7->setGeometry(QRect(210, 100, 121, 41));
+        pushButton_8 = new QPushButton(groupBox_4);
+        pushButton_8->setObjectName(QString::fromUtf8("pushButton_8"));
+        pushButton_8->setGeometry(QRect(350, 100, 121, 41));
+        pushButton_9 = new QPushButton(groupBox_4);
+        pushButton_9->setObjectName(QString::fromUtf8("pushButton_9"));
+        pushButton_9->setGeometry(QRect(50, 160, 111, 41));
+        pushButton_10 = new QPushButton(groupBox_4);
+        pushButton_10->setObjectName(QString::fromUtf8("pushButton_10"));
+        pushButton_10->setGeometry(QRect(190, 160, 111, 41));
+        pushButton_11 = new QPushButton(groupBox_4);
+        pushButton_11->setObjectName(QString::fromUtf8("pushButton_11"));
+        pushButton_11->setGeometry(QRect(330, 160, 111, 41));
+        pushButton_12 = new QPushButton(groupBox_4);
+        pushButton_12->setObjectName(QString::fromUtf8("pushButton_12"));
+        pushButton_12->setGeometry(QRect(460, 160, 111, 41));
+        pushButton_13 = new QPushButton(groupBox_4);
+        pushButton_13->setObjectName(QString::fromUtf8("pushButton_13"));
+        pushButton_13->setGeometry(QRect(50, 220, 271, 81));
+        layoutWidget2 = new QWidget(groupBox_4);
+        layoutWidget2->setObjectName(QString::fromUtf8("layoutWidget2"));
+        layoutWidget2->setGeometry(QRect(50, 50, 141, 77));
+        verticalLayout_6 = new QVBoxLayout(layoutWidget2);
         verticalLayout_6->setObjectName(QString::fromUtf8("verticalLayout_6"));
         verticalLayout_6->setContentsMargins(0, 0, 0, 0);
-        label_17 = new QLabel(widget2);
+        label_17 = new QLabel(layoutWidget2);
         label_17->setObjectName(QString::fromUtf8("label_17"));
         label_17->setStyleSheet(QString::fromUtf8("font: 14pt \"Agency FB\";"));
 
         verticalLayout_6->addWidget(label_17);
 
-        lineEdit = new QLineEdit(widget2);
+        lineEdit = new QLineEdit(layoutWidget2);
         lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
         lineEdit->setMinimumSize(QSize(0, 35));
 
         verticalLayout_6->addWidget(lineEdit);
 
-        widget3 = new QWidget(setting);
-        widget3->setObjectName(QString::fromUtf8("widget3"));
-        widget3->setGeometry(QRect(10, 26, 271, 738));
-        verticalLayout_4 = new QVBoxLayout(widget3);
+        layoutWidget3 = new QWidget(setting);
+        layoutWidget3->setObjectName(QString::fromUtf8("layoutWidget3"));
+        layoutWidget3->setGeometry(QRect(10, 26, 271, 738));
+        verticalLayout_4 = new QVBoxLayout(layoutWidget3);
         verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
         verticalLayout_4->setContentsMargins(0, 0, 0, 0);
-        scanningButton = new QPushButton(widget3);
+        scanningButton = new QPushButton(layoutWidget3);
         scanningButton->setObjectName(QString::fromUtf8("scanningButton"));
         scanningButton->setMinimumSize(QSize(0, 0));
         QFont font;
@@ -325,7 +361,7 @@ public:
 
         verticalLayout_4->addWidget(scanningButton);
 
-        spectList = new QListWidget(widget3);
+        spectList = new QListWidget(layoutWidget3);
         spectList->setObjectName(QString::fromUtf8("spectList"));
         spectList->setMinimumSize(QSize(0, 400));
         spectList->setStyleSheet(QString::fromUtf8(""));
@@ -333,7 +369,7 @@ public:
 
         verticalLayout_4->addWidget(spectList);
 
-        setChannelNumberButton = new QPushButton(widget3);
+        setChannelNumberButton = new QPushButton(layoutWidget3);
         setChannelNumberButton->setObjectName(QString::fromUtf8("setChannelNumberButton"));
         setChannelNumberButton->setMinimumSize(QSize(0, 0));
         setChannelNumberButton->setFont(font);
@@ -348,7 +384,7 @@ public:
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        label_2 = new QLabel(widget3);
+        label_2 = new QLabel(layoutWidget3);
         label_2->setObjectName(QString::fromUtf8("label_2"));
         label_2->setStyleSheet(QString::fromUtf8("QLabel{\n"
 "	font-size: 20px;\n"
@@ -360,7 +396,7 @@ public:
 
         horizontalLayout_2->addWidget(label_2);
 
-        numberEdit = new QLineEdit(widget3);
+        numberEdit = new QLineEdit(layoutWidget3);
         numberEdit->setObjectName(QString::fromUtf8("numberEdit"));
         numberEdit->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
 "	max-height: 30px;\n"
@@ -375,7 +411,7 @@ public:
 
         horizontalLayout_6 = new QHBoxLayout();
         horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
-        label_15 = new QLabel(widget3);
+        label_15 = new QLabel(layoutWidget3);
         label_15->setObjectName(QString::fromUtf8("label_15"));
         label_15->setStyleSheet(QString::fromUtf8("QLabel{\n"
 "	font-size: 20px;\n"
@@ -386,7 +422,7 @@ public:
 
         horizontalLayout_6->addWidget(label_15);
 
-        channelNumbeEdit = new QLineEdit(widget3);
+        channelNumbeEdit = new QLineEdit(layoutWidget3);
         channelNumbeEdit->setObjectName(QString::fromUtf8("channelNumbeEdit"));
         channelNumbeEdit->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
 "	max-height: 30px;\n"
@@ -402,10 +438,10 @@ public:
         tabWidget->addTab(setting, QString());
         params = new QWidget();
         params->setObjectName(QString::fromUtf8("params"));
-        layoutWidget = new QWidget(params);
-        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(-40, 30, 891, 561));
-        horizontalLayout_12 = new QHBoxLayout(layoutWidget);
+        layoutWidget4 = new QWidget(params);
+        layoutWidget4->setObjectName(QString::fromUtf8("layoutWidget4"));
+        layoutWidget4->setGeometry(QRect(-40, 30, 891, 561));
+        horizontalLayout_12 = new QHBoxLayout(layoutWidget4);
         horizontalLayout_12->setObjectName(QString::fromUtf8("horizontalLayout_12"));
         horizontalLayout_12->setContentsMargins(0, 0, 0, 0);
         verticalLayout_2 = new QVBoxLayout();
@@ -416,13 +452,13 @@ public:
 
         horizontalLayout->addItem(horizontalSpacer_2);
 
-        label = new QLabel(layoutWidget);
+        label = new QLabel(layoutWidget4);
         label->setObjectName(QString::fromUtf8("label"));
         label->setMaximumSize(QSize(16777215, 16777196));
 
         horizontalLayout->addWidget(label);
 
-        textBrowser = new QTextBrowser(layoutWidget);
+        textBrowser = new QTextBrowser(layoutWidget4);
         textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
         textBrowser->setMaximumSize(QSize(200, 30));
         textBrowser->setAutoFormatting(QTextEdit::AutoNone);
@@ -438,13 +474,13 @@ public:
 
         horizontalLayout_3->addItem(horizontalSpacer_5);
 
-        label_3 = new QLabel(layoutWidget);
+        label_3 = new QLabel(layoutWidget4);
         label_3->setObjectName(QString::fromUtf8("label_3"));
         label_3->setMaximumSize(QSize(16777215, 16777196));
 
         horizontalLayout_3->addWidget(label_3);
 
-        textBrowser_3 = new QTextBrowser(layoutWidget);
+        textBrowser_3 = new QTextBrowser(layoutWidget4);
         textBrowser_3->setObjectName(QString::fromUtf8("textBrowser_3"));
         textBrowser_3->setMaximumSize(QSize(200, 30));
         textBrowser_3->setAutoFormatting(QTextEdit::AutoNone);
@@ -460,13 +496,13 @@ public:
 
         horizontalLayout_4->addItem(horizontalSpacer_7);
 
-        label_4 = new QLabel(layoutWidget);
+        label_4 = new QLabel(layoutWidget4);
         label_4->setObjectName(QString::fromUtf8("label_4"));
         label_4->setMaximumSize(QSize(16777215, 16777196));
 
         horizontalLayout_4->addWidget(label_4);
 
-        textBrowser_4 = new QTextBrowser(layoutWidget);
+        textBrowser_4 = new QTextBrowser(layoutWidget4);
         textBrowser_4->setObjectName(QString::fromUtf8("textBrowser_4"));
         textBrowser_4->setMaximumSize(QSize(200, 30));
         textBrowser_4->setAutoFormatting(QTextEdit::AutoNone);
@@ -482,13 +518,13 @@ public:
 
         horizontalLayout_9->addItem(horizontalSpacer_17);
 
-        label_9 = new QLabel(layoutWidget);
+        label_9 = new QLabel(layoutWidget4);
         label_9->setObjectName(QString::fromUtf8("label_9"));
         label_9->setMaximumSize(QSize(16777215, 16777196));
 
         horizontalLayout_9->addWidget(label_9);
 
-        textBrowser_9 = new QTextBrowser(layoutWidget);
+        textBrowser_9 = new QTextBrowser(layoutWidget4);
         textBrowser_9->setObjectName(QString::fromUtf8("textBrowser_9"));
         textBrowser_9->setMaximumSize(QSize(200, 30));
         textBrowser_9->setAutoFormatting(QTextEdit::AutoNone);
@@ -504,13 +540,13 @@ public:
 
         horizontalLayout_11->addItem(horizontalSpacer_21);
 
-        label_11 = new QLabel(layoutWidget);
+        label_11 = new QLabel(layoutWidget4);
         label_11->setObjectName(QString::fromUtf8("label_11"));
         label_11->setMaximumSize(QSize(16777215, 16777196));
 
         horizontalLayout_11->addWidget(label_11);
 
-        textBrowser_11 = new QTextBrowser(layoutWidget);
+        textBrowser_11 = new QTextBrowser(layoutWidget4);
         textBrowser_11->setObjectName(QString::fromUtf8("textBrowser_11"));
         textBrowser_11->setMaximumSize(QSize(200, 30));
         textBrowser_11->setAutoFormatting(QTextEdit::AutoNone);
@@ -526,13 +562,13 @@ public:
 
         horizontalLayout_20->addItem(horizontalSpacer_25);
 
-        label_13 = new QLabel(layoutWidget);
+        label_13 = new QLabel(layoutWidget4);
         label_13->setObjectName(QString::fromUtf8("label_13"));
         label_13->setMaximumSize(QSize(16777215, 16777196));
 
         horizontalLayout_20->addWidget(label_13);
 
-        textBrowser_13 = new QTextBrowser(layoutWidget);
+        textBrowser_13 = new QTextBrowser(layoutWidget4);
         textBrowser_13->setObjectName(QString::fromUtf8("textBrowser_13"));
         textBrowser_13->setMaximumSize(QSize(200, 30));
         textBrowser_13->setAutoFormatting(QTextEdit::AutoNone);
@@ -553,13 +589,13 @@ public:
 
         horizontalLayout_5->addItem(horizontalSpacer_9);
 
-        label_5 = new QLabel(layoutWidget);
+        label_5 = new QLabel(layoutWidget4);
         label_5->setObjectName(QString::fromUtf8("label_5"));
         label_5->setMaximumSize(QSize(16777215, 16777196));
 
         horizontalLayout_5->addWidget(label_5);
 
-        textBrowser_5 = new QTextBrowser(layoutWidget);
+        textBrowser_5 = new QTextBrowser(layoutWidget4);
         textBrowser_5->setObjectName(QString::fromUtf8("textBrowser_5"));
         textBrowser_5->setMaximumSize(QSize(200, 30));
         textBrowser_5->setAutoFormatting(QTextEdit::AutoNone);
@@ -575,13 +611,13 @@ public:
 
         horizontalLayout_7->addItem(horizontalSpacer_13);
 
-        label_7 = new QLabel(layoutWidget);
+        label_7 = new QLabel(layoutWidget4);
         label_7->setObjectName(QString::fromUtf8("label_7"));
         label_7->setMaximumSize(QSize(16777215, 16777196));
 
         horizontalLayout_7->addWidget(label_7);
 
-        textBrowser_7 = new QTextBrowser(layoutWidget);
+        textBrowser_7 = new QTextBrowser(layoutWidget4);
         textBrowser_7->setObjectName(QString::fromUtf8("textBrowser_7"));
         textBrowser_7->setMaximumSize(QSize(200, 30));
         textBrowser_7->setAutoFormatting(QTextEdit::AutoNone);
@@ -597,13 +633,13 @@ public:
 
         horizontalLayout_8->addItem(horizontalSpacer_15);
 
-        label_8 = new QLabel(layoutWidget);
+        label_8 = new QLabel(layoutWidget4);
         label_8->setObjectName(QString::fromUtf8("label_8"));
         label_8->setMaximumSize(QSize(16777215, 16777196));
 
         horizontalLayout_8->addWidget(label_8);
 
-        textBrowser_8 = new QTextBrowser(layoutWidget);
+        textBrowser_8 = new QTextBrowser(layoutWidget4);
         textBrowser_8->setObjectName(QString::fromUtf8("textBrowser_8"));
         textBrowser_8->setMaximumSize(QSize(200, 30));
         textBrowser_8->setAutoFormatting(QTextEdit::AutoNone);
@@ -619,13 +655,13 @@ public:
 
         horizontalLayout_10->addItem(horizontalSpacer_19);
 
-        label_10 = new QLabel(layoutWidget);
+        label_10 = new QLabel(layoutWidget4);
         label_10->setObjectName(QString::fromUtf8("label_10"));
         label_10->setMaximumSize(QSize(16777215, 16777196));
 
         horizontalLayout_10->addWidget(label_10);
 
-        textBrowser_10 = new QTextBrowser(layoutWidget);
+        textBrowser_10 = new QTextBrowser(layoutWidget4);
         textBrowser_10->setObjectName(QString::fromUtf8("textBrowser_10"));
         textBrowser_10->setMaximumSize(QSize(200, 30));
         textBrowser_10->setAutoFormatting(QTextEdit::AutoNone);
@@ -641,13 +677,13 @@ public:
 
         horizontalLayout_18->addItem(horizontalSpacer_23);
 
-        label_12 = new QLabel(layoutWidget);
+        label_12 = new QLabel(layoutWidget4);
         label_12->setObjectName(QString::fromUtf8("label_12"));
         label_12->setMaximumSize(QSize(16777215, 16777196));
 
         horizontalLayout_18->addWidget(label_12);
 
-        textBrowser_12 = new QTextBrowser(layoutWidget);
+        textBrowser_12 = new QTextBrowser(layoutWidget4);
         textBrowser_12->setObjectName(QString::fromUtf8("textBrowser_12"));
         textBrowser_12->setMaximumSize(QSize(200, 30));
         textBrowser_12->setAutoFormatting(QTextEdit::AutoNone);
@@ -663,13 +699,13 @@ public:
 
         horizontalLayout_21->addItem(horizontalSpacer_27);
 
-        label_14 = new QLabel(layoutWidget);
+        label_14 = new QLabel(layoutWidget4);
         label_14->setObjectName(QString::fromUtf8("label_14"));
         label_14->setMaximumSize(QSize(16777215, 16777196));
 
         horizontalLayout_21->addWidget(label_14);
 
-        textBrowser_14 = new QTextBrowser(layoutWidget);
+        textBrowser_14 = new QTextBrowser(layoutWidget4);
         textBrowser_14->setObjectName(QString::fromUtf8("textBrowser_14"));
         textBrowser_14->setMaximumSize(QSize(200, 30));
         textBrowser_14->setAutoFormatting(QTextEdit::AutoNone);
@@ -722,11 +758,20 @@ public:
         pushButton_4->setText(QApplication::translate("Widget", "\350\256\276\347\275\256\347\247\257\345\210\206\346\227\266\351\227\264\345\222\214\351\207\207\346\240\267\346\254\241\346\225\260", nullptr));
         pushButton_5->setText(QApplication::translate("Widget", "\351\207\207\351\233\206\346\263\242\351\225\277\346\225\260\346\215\256", nullptr));
         pushButton_6->setText(QApplication::translate("Widget", "\350\216\267\345\217\226\345\244\226\350\247\246\345\217\221\344\277\241\345\217\267", nullptr));
-        lineEdit_2->setInputMask(QApplication::translate("Widget", "\346\224\266\345\210\260\350\247\246\345\217\221\344\277\241\345\217\267", nullptr));
-        lineEdit_2->setText(QApplication::translate("Widget", "\346\224\266\345\210\260\350\247\246\345\217\221\344\277\241\345\217\267", nullptr));
+        lineEdit_2->setInputMask(QString());
+        lineEdit_2->setText(QString());
         label_6->setText(QApplication::translate("Widget", "\347\247\257\345\210\206\346\227\266\351\227\264", nullptr));
         label_16->setText(QApplication::translate("Widget", "\351\207\207\346\240\267\346\254\241\346\225\260", nullptr));
         groupBox_4->setTitle(QApplication::translate("Widget", "\345\244\232\345\217\260\350\277\236\346\265\213", nullptr));
+        pushButton->setText(QApplication::translate("Widget", "\350\277\236\347\273\255\351\207\207\346\240\2671", nullptr));
+        pushButton_2->setText(QApplication::translate("Widget", "\350\277\236\347\273\255\351\207\207\346\240\2672", nullptr));
+        pushButton_7->setText(QApplication::translate("Widget", "\350\277\236\347\273\255\351\207\207\346\240\2673", nullptr));
+        pushButton_8->setText(QApplication::translate("Widget", "\350\277\236\347\273\255\351\207\207\346\240\2674", nullptr));
+        pushButton_9->setText(QApplication::translate("Widget", "\351\224\200\346\257\201\347\256\241\351\201\2231", nullptr));
+        pushButton_10->setText(QApplication::translate("Widget", "\351\224\200\346\257\201\347\256\241\351\201\2232", nullptr));
+        pushButton_11->setText(QApplication::translate("Widget", "\351\224\200\346\257\201\347\256\241\351\201\2233", nullptr));
+        pushButton_12->setText(QApplication::translate("Widget", "\351\224\200\346\257\201\347\256\241\351\201\2234", nullptr));
+        pushButton_13->setText(QApplication::translate("Widget", "\351\207\207\351\233\206\344\270\244\345\217\260\346\263\242\351\225\277\346\225\260\346\215\256", nullptr));
         label_17->setText(QApplication::translate("Widget", "\350\266\205\346\227\266\346\227\266\351\227\264", nullptr));
         scanningButton->setText(QApplication::translate("Widget", "\346\211\253\346\217\217\345\205\211\350\260\261\344\273\252\345\210\227\350\241\250", nullptr));
         setChannelNumberButton->setText(QApplication::translate("Widget", "\350\256\276\347\275\256\351\200\232\351\201\223\345\217\267", nullptr));

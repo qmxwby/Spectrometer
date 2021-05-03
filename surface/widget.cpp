@@ -46,11 +46,18 @@ void Widget::init(){
     numberEdit = ui->numberEdit;
     channelNumberEdit = ui->channelNumbeEdit;
     normalradioButton = ui->radioButton;
+    enradioButton = ui->radioButton_2;
     softTouchButton = ui->pushButton_3;
     timeEdit = ui->lineEdit_3;
+    timeEdit->setText("10");
     timecountEdit = ui->lineEdit_4;
+    timecountEdit->setText("1");
     getsignButton = ui->pushButton_6;
     getsignButton->setEnabled(false);
+
+    dataList = ui->listWidget;
+
+    SignLine = ui->lineEdit_2;
 }
 
 // string to qstring
@@ -88,11 +95,8 @@ QString int2qstr(int x){
 float qstr2float(QString x){
     return x.toFloat();
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 488d060bcf3dab6951b0fff5f7e31a5fe4a7effc
-
+//扫描光谱仪列表
 void Widget::on_scanningButton_pressed()
 {
 
@@ -140,6 +144,7 @@ void Widget::on_scanningButton_pressed()
          }
 }
 
+//设置通道号
 void Widget::on_setChannelNumberButton_clicked()
 {
     char*  ch=numberEdit->text().toLatin1().data();
@@ -180,6 +185,7 @@ void Widget::on_radioButton_clicked()
       }
 }
 
+//设置积分时间
 void Widget::on_pushButton_4_clicked()
 {
     if (JF_USB_SetIntegrationTimeFMux(qstr2int(channelNumberEdit->text()), qstr2float(timeEdit->text())) == 0)
@@ -192,6 +198,7 @@ void Widget::on_pushButton_4_clicked()
      QMessageBox::information(NULL,"提示","设定成功！");
 }
 
+//获取光谱数据（能量值）
 float fwaveData[420];
 void Widget::on_pushButton_5_clicked()
 {
@@ -201,26 +208,47 @@ void Widget::on_pushButton_5_clicked()
           return;
     }
 
-//    listBox1.Items.Clear();
-//    for (int i = 0; i <= 400; i++)
-//    {
+    dataList->clear();
+    for (int i = 0; i <= 400; i++)
+    {
 //          listBox1.Items.Add((380 + i) + "\t" + fwaveData[i].ToString("0"));
-//     }
+        dataList->addItem(str2Qstr(std::to_string(fwaveData[i])));
+     }
 //     pictureBox1.Refresh();
 }
 
+//获取外部触发信号
 void Widget::on_pushButton_6_clicked()
 {
     int iState = 0;
     JF_USB_ExternalTriggerGetDataReadyStateMux(qstr2int(channelNumberEdit->text()), &iState);
-//    if (iState == 0)
-//    {
-//          label1.Text = "未触发";
-//          label1.BackColor = Color.Red;
-//    }
-//    else
-//    {
-//          label1.Text = "收到触发信号";
-//          label1.BackColor = Color.Transparent;
-//    }
+    if (iState == 0)
+    {
+          SignLine->setText("未触发");
+          //label1.BackColor = Color.Red;
+    }
+    else
+    {
+          SignLine->setText("收到触发信号");
+          //label1.BackColor = Color.Transparent;
+    }
+}
+
+//设置外部触发模式
+void Widget::on_radioButton_2_clicked()
+{
+    if (enradioButton->isChecked())
+    {
+         if (JF_USB_ExternalTriggerSetModeMux(qstr2int(channelNumberEdit->text()), 1) == 0)
+         {
+                QMessageBox::information(NULL,"提示","设置失败！");
+                return;
+         }
+         float fwaveData[420];
+         JF_USB_GetWaveDataMux(qstr2int(channelNumberEdit->text()), 380, 780, 1, fwaveData);
+
+         softTouchButton->setEnabled(false);
+         getsignButton->setEnabled(true);
+         QMessageBox::information(NULL,"提示","已切换到外触发模式，请在触发信号发送后务必采样取走数据！");
+     }
 }
