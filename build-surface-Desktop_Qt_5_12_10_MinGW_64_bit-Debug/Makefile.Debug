@@ -1812,18 +1812,6 @@ debug/widget.o: ../surface/widget.cpp ../surface/widget.h \
 		../surface/Inteface.h \
 		../surface/ChromaticsInteface.h \
 		ui_widget.h \
-		../../../../Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QApplication \
-		../../../../Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QComboBox \
-		../../../../Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QGroupBox \
-		../../../../Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QHBoxLayout \
-		../../../../Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QLineEdit \
-		../../../../Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QPushButton \
-		../../../../Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QRadioButton \
-		../../../../Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QScrollArea \
-		../../../../Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QSpacerItem \
-		../../../../Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QTabWidget \
-		../../../../Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QTextBrowser \
-		../../../../Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QVBoxLayout \
 		../../../../Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/QDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\widget.o ..\surface\widget.cpp
 

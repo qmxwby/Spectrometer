@@ -63,5 +63,6 @@ private:
     QPushButton *getsignButton;
     QListWidget *dataList;
     QLineEdit *SignLine;
+
 };
 #endif // WIDGET_H
