@@ -46,14 +46,36 @@ void Widget::init(){
     numberEdit = ui->numberEdit;
     channelNumberEdit = ui->channelNumbeEdit;
 }
-
-
-void Widget::on_pushButton_clicked()
-{
-//    int row = qlistwidget->count();
-//    QString s = QString::number(row);
-//    ui->listWidget->insertItem(row,s);
-//    std::string str = "test";
+// string to qstring
+QString str2Qstr(std::string str){
+    QString res = QString::fromStdString(str);
+    return res;
+}
+// qstring to str
+std::string Qstr2str(QString qstr){
+    std::string str = qstr.toStdString();
+    return str;
+}
+// qstring to char*
+char* Qstr2charArray(QString qstr){
+    char *ch;
+    QByteArray ba = qstr.toLatin1();
+    ch=ba.data();
+    return ch;
+}
+// string to char*
+char* str2charArray(std::string str){
+    char * strc = new char[strlen(str.c_str())+1];
+    strcpy(strc, str.c_str());
+    return strc;
+}
+// qstring to int
+int qstr2int(QString qstr){
+    return qstr.toInt();
+}
+// int to qstring
+QString int2qstr(int x){
+    return QString::number(x);
 }
 
 void Widget::on_pushButton_pressed()
