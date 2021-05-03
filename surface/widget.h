@@ -53,14 +53,10 @@ private:
     QPushButton *setChannelNumberButton;
     QLineEdit *numberEdit;
     QLineEdit *channelNumberEdit;
-<<<<<<< HEAD
     QRadioButton *normalradioButton;
     QPushButton *softTouchButton;
     QLineEdit *timeEdit;
     QLineEdit *timecountEdit;
     QPushButton *getsignButton;
-
-=======
->>>>>>> 488d060bcf3dab6951b0fff5f7e31a5fe4a7effc
 };
 #endif // WIDGET_H

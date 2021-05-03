@@ -88,10 +88,6 @@ QString int2qstr(int x){
 float qstr2float(QString x){
     return x.toFloat();
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 488d060bcf3dab6951b0fff5f7e31a5fe4a7effc
 
 void Widget::on_scanningButton_pressed()
 {
