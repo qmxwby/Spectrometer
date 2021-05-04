@@ -25,6 +25,7 @@
 #include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
+#include "qchartview.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -81,6 +82,7 @@ public:
     QHBoxLayout *horizontalLayout_6;
     QLabel *label_15;
     QLineEdit *channelNumbeEdit;
+    QtCharts::QChartView *graphicsView;
     QWidget *params;
     QWidget *layoutWidget4;
     QHBoxLayout *horizontalLayout_12;
@@ -435,6 +437,9 @@ public:
 
         verticalLayout_4->addLayout(horizontalLayout_6);
 
+        graphicsView = new QtCharts::QChartView(setting);
+        graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
+        graphicsView->setGeometry(QRect(1025, 30, 341, 381));
         tabWidget->addTab(setting, QString());
         params = new QWidget();
         params->setObjectName(QString::fromUtf8("params"));

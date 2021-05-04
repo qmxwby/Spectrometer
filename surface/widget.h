@@ -28,6 +28,7 @@ public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
 
+    void draw();
 private slots:
     void init();
 
@@ -47,6 +48,7 @@ private slots:
 
     void on_radioButton_2_clicked();
 
+
 private:
     Ui::Widget *ui;
     QListWidget *spectList;
@@ -63,6 +65,7 @@ private:
     QPushButton *getsignButton;
     QListWidget *dataList;
     QLineEdit *SignLine;
+    QtCharts::QChartView *dataSeriesView;
 
 };
 #endif // WIDGET_H

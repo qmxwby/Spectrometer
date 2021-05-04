@@ -48,29 +48,9 @@ void Widget::init(){
     timecountEdit->setText("1");
     getsignButton = ui->pushButton_6;
     getsignButton->setEnabled(false);
-
     dataList = ui->listWidget;
-
     SignLine = ui->lineEdit_2;
-
-
-
-    // 画图
-    QLineSeries *series = new QLineSeries();
-    series->append(0, 6);
-    series->append(2, 4);
-    series->append(3, 8);
-    series->append(7, 4);
-    series->append(10, 5);
-    *series << QPointF(11, 1) << QPointF(13, 3) << QPointF(17, 6) << QPointF(18, 3) << QPointF(20, 2);
-
-    QChart *chart = new QChart();
-    chart->legend()->hide();
-    chart->addSeries(series);
-    chart->createDefaultAxes();
-    chart->setTitle("Simple line chart example");
-    ui->graphicsView->setChart(chart);
-    ui->graphicsView->setRenderHint(QPainter::Antialiasing);
+    dataSeriesView = ui->graphicsView;
 }
 // string to qstring
 QString str2Qstr(std::string str){
@@ -212,6 +192,22 @@ void Widget::on_pushButton_4_clicked()
 
 //获取光谱数据（能量值）
 float fwaveData[420];
+
+
+void Widget::draw(){
+    QLineSeries *series = new QLineSeries();
+    int len = 400;
+    for(int i = 1; i <= len; i++){
+        series->append(i,fwaveData[i-1]);
+    }
+    QChart *chart = new QChart();
+    chart->legend()->hide();
+    chart->addSeries(series);
+    chart->createDefaultAxes();
+    chart->setTitle("Simple line chart example");
+    dataSeriesView->setChart(chart);
+}
+
 void Widget::on_pushButton_5_clicked()
 {
     if (JF_USB_GetWaveDataMux(qstr2int(channelNumberEdit->text()), 380, 780, 1, fwaveData) == 0)
@@ -227,7 +223,10 @@ void Widget::on_pushButton_5_clicked()
         dataList->addItem(str2Qstr(std::to_string(fwaveData[i])));
      }
 //     pictureBox1.Refresh();
+    draw();
 }
+
+
 
 //获取外部触发信号
 void Widget::on_pushButton_6_clicked()
@@ -246,6 +245,7 @@ void Widget::on_pushButton_6_clicked()
     }
 }
 
+
 //设置外部触发模式
 void Widget::on_radioButton_2_clicked()
 {
@@ -258,9 +258,10 @@ void Widget::on_radioButton_2_clicked()
          }
          float fwaveData[420];
          JF_USB_GetWaveDataMux(qstr2int(channelNumberEdit->text()), 380, 780, 1, fwaveData);
-
          softTouchButton->setEnabled(false);
          getsignButton->setEnabled(true);
          QMessageBox::information(NULL,"提示","已切换到外触发模式，请在触发信号发送后务必采样取走数据！");
      }
 }
+
+
