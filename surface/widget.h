@@ -2,6 +2,7 @@
 #define WIDGET_H
 
 #include <QWidget>
+#include <QTimer>
 #include <QListWidget>
 #include <QtWidgets/QWidget>
 #include <QLabel>
@@ -29,8 +30,12 @@ public:
     ~Widget();
 
     void draw();
+    void timeout_Done();
+
 private slots:
     void init();
+    void timeEvent01();
+    void timerInit();
 
     void on_scanningButton_pressed();
 
@@ -49,6 +54,10 @@ private slots:
     void on_radioButton_2_clicked();
 
 
+    void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
+
 private:
     Ui::Widget *ui;
     QListWidget *spectList;
@@ -66,6 +75,9 @@ private:
     QListWidget *dataList;
     QLineEdit *SignLine;
     QtCharts::QChartView *dataSeriesView;
+    QLineEdit *intervalTimer;
+    QLineEdit *countTimer;
+    QLineEdit *remainCountTimer;
 
 };
 #endif // WIDGET_H

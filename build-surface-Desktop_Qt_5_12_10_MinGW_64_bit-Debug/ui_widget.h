@@ -60,17 +60,18 @@ public:
     QGroupBox *groupBox_4;
     QPushButton *pushButton;
     QPushButton *pushButton_2;
-    QPushButton *pushButton_7;
-    QPushButton *pushButton_8;
-    QPushButton *pushButton_9;
-    QPushButton *pushButton_10;
-    QPushButton *pushButton_11;
-    QPushButton *pushButton_12;
-    QPushButton *pushButton_13;
     QWidget *layoutWidget2;
     QVBoxLayout *verticalLayout_6;
     QLabel *label_17;
     QLineEdit *lineEdit;
+    QWidget *layoutWidget_2;
+    QVBoxLayout *verticalLayout_7;
+    QLabel *label_19;
+    QLineEdit *lineEdit_6;
+    QWidget *layoutWidget_3;
+    QVBoxLayout *verticalLayout_8;
+    QLabel *label_20;
+    QLineEdit *lineEdit_7;
     QWidget *layoutWidget3;
     QVBoxLayout *verticalLayout_4;
     QPushButton *scanningButton;
@@ -293,34 +294,13 @@ public:
 "}"));
         pushButton = new QPushButton(groupBox_4);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(210, 50, 121, 41));
+        pushButton->setGeometry(QRect(60, 150, 121, 81));
         pushButton_2 = new QPushButton(groupBox_4);
         pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
-        pushButton_2->setGeometry(QRect(350, 50, 121, 41));
-        pushButton_7 = new QPushButton(groupBox_4);
-        pushButton_7->setObjectName(QString::fromUtf8("pushButton_7"));
-        pushButton_7->setGeometry(QRect(210, 100, 121, 41));
-        pushButton_8 = new QPushButton(groupBox_4);
-        pushButton_8->setObjectName(QString::fromUtf8("pushButton_8"));
-        pushButton_8->setGeometry(QRect(350, 100, 121, 41));
-        pushButton_9 = new QPushButton(groupBox_4);
-        pushButton_9->setObjectName(QString::fromUtf8("pushButton_9"));
-        pushButton_9->setGeometry(QRect(50, 160, 111, 41));
-        pushButton_10 = new QPushButton(groupBox_4);
-        pushButton_10->setObjectName(QString::fromUtf8("pushButton_10"));
-        pushButton_10->setGeometry(QRect(190, 160, 111, 41));
-        pushButton_11 = new QPushButton(groupBox_4);
-        pushButton_11->setObjectName(QString::fromUtf8("pushButton_11"));
-        pushButton_11->setGeometry(QRect(330, 160, 111, 41));
-        pushButton_12 = new QPushButton(groupBox_4);
-        pushButton_12->setObjectName(QString::fromUtf8("pushButton_12"));
-        pushButton_12->setGeometry(QRect(460, 160, 111, 41));
-        pushButton_13 = new QPushButton(groupBox_4);
-        pushButton_13->setObjectName(QString::fromUtf8("pushButton_13"));
-        pushButton_13->setGeometry(QRect(50, 220, 271, 81));
+        pushButton_2->setGeometry(QRect(260, 150, 121, 81));
         layoutWidget2 = new QWidget(groupBox_4);
         layoutWidget2->setObjectName(QString::fromUtf8("layoutWidget2"));
-        layoutWidget2->setGeometry(QRect(50, 50, 141, 77));
+        layoutWidget2->setGeometry(QRect(40, 50, 151, 77));
         verticalLayout_6 = new QVBoxLayout(layoutWidget2);
         verticalLayout_6->setObjectName(QString::fromUtf8("verticalLayout_6"));
         verticalLayout_6->setContentsMargins(0, 0, 0, 0);
@@ -335,6 +315,43 @@ public:
         lineEdit->setMinimumSize(QSize(0, 35));
 
         verticalLayout_6->addWidget(lineEdit);
+
+        layoutWidget_2 = new QWidget(groupBox_4);
+        layoutWidget_2->setObjectName(QString::fromUtf8("layoutWidget_2"));
+        layoutWidget_2->setGeometry(QRect(210, 50, 151, 77));
+        verticalLayout_7 = new QVBoxLayout(layoutWidget_2);
+        verticalLayout_7->setObjectName(QString::fromUtf8("verticalLayout_7"));
+        verticalLayout_7->setContentsMargins(0, 0, 0, 0);
+        label_19 = new QLabel(layoutWidget_2);
+        label_19->setObjectName(QString::fromUtf8("label_19"));
+        label_19->setStyleSheet(QString::fromUtf8("font: 14pt \"Agency FB\";"));
+
+        verticalLayout_7->addWidget(label_19);
+
+        lineEdit_6 = new QLineEdit(layoutWidget_2);
+        lineEdit_6->setObjectName(QString::fromUtf8("lineEdit_6"));
+        lineEdit_6->setMinimumSize(QSize(0, 35));
+
+        verticalLayout_7->addWidget(lineEdit_6);
+
+        layoutWidget_3 = new QWidget(groupBox_4);
+        layoutWidget_3->setObjectName(QString::fromUtf8("layoutWidget_3"));
+        layoutWidget_3->setGeometry(QRect(380, 50, 141, 77));
+        verticalLayout_8 = new QVBoxLayout(layoutWidget_3);
+        verticalLayout_8->setObjectName(QString::fromUtf8("verticalLayout_8"));
+        verticalLayout_8->setContentsMargins(0, 0, 0, 0);
+        label_20 = new QLabel(layoutWidget_3);
+        label_20->setObjectName(QString::fromUtf8("label_20"));
+        label_20->setStyleSheet(QString::fromUtf8("font: 14pt \"Agency FB\";"));
+
+        verticalLayout_8->addWidget(label_20);
+
+        lineEdit_7 = new QLineEdit(layoutWidget_3);
+        lineEdit_7->setObjectName(QString::fromUtf8("lineEdit_7"));
+        lineEdit_7->setEnabled(false);
+        lineEdit_7->setMinimumSize(QSize(0, 35));
+
+        verticalLayout_8->addWidget(lineEdit_7);
 
         layoutWidget3 = new QWidget(setting);
         layoutWidget3->setObjectName(QString::fromUtf8("layoutWidget3"));
@@ -767,17 +784,12 @@ public:
         lineEdit_2->setText(QString());
         label_6->setText(QApplication::translate("Widget", "\347\247\257\345\210\206\346\227\266\351\227\264", nullptr));
         label_16->setText(QApplication::translate("Widget", "\351\207\207\346\240\267\346\254\241\346\225\260", nullptr));
-        groupBox_4->setTitle(QApplication::translate("Widget", "\345\244\232\345\217\260\350\277\236\346\265\213", nullptr));
-        pushButton->setText(QApplication::translate("Widget", "\350\277\236\347\273\255\351\207\207\346\240\2671", nullptr));
-        pushButton_2->setText(QApplication::translate("Widget", "\350\277\236\347\273\255\351\207\207\346\240\2672", nullptr));
-        pushButton_7->setText(QApplication::translate("Widget", "\350\277\236\347\273\255\351\207\207\346\240\2673", nullptr));
-        pushButton_8->setText(QApplication::translate("Widget", "\350\277\236\347\273\255\351\207\207\346\240\2674", nullptr));
-        pushButton_9->setText(QApplication::translate("Widget", "\351\224\200\346\257\201\347\256\241\351\201\2231", nullptr));
-        pushButton_10->setText(QApplication::translate("Widget", "\351\224\200\346\257\201\347\256\241\351\201\2232", nullptr));
-        pushButton_11->setText(QApplication::translate("Widget", "\351\224\200\346\257\201\347\256\241\351\201\2233", nullptr));
-        pushButton_12->setText(QApplication::translate("Widget", "\351\224\200\346\257\201\347\256\241\351\201\2234", nullptr));
-        pushButton_13->setText(QApplication::translate("Widget", "\351\207\207\351\233\206\344\270\244\345\217\260\346\263\242\351\225\277\346\225\260\346\215\256", nullptr));
-        label_17->setText(QApplication::translate("Widget", "\350\266\205\346\227\266\346\227\266\351\227\264", nullptr));
+        groupBox_4->setTitle(QApplication::translate("Widget", "\345\256\236\346\227\266\347\233\221\346\265\213", nullptr));
+        pushButton->setText(QApplication::translate("Widget", "\345\274\200\345\247\213", nullptr));
+        pushButton_2->setText(QApplication::translate("Widget", "\345\205\263\351\227\255", nullptr));
+        label_17->setText(QApplication::translate("Widget", "\351\227\264\351\232\224\346\227\266\351\227\264", nullptr));
+        label_19->setText(QApplication::translate("Widget", "\347\233\221\346\265\213\346\254\241\346\225\260", nullptr));
+        label_20->setText(QApplication::translate("Widget", "\345\211\251\344\275\231\346\254\241\346\225\260", nullptr));
         scanningButton->setText(QApplication::translate("Widget", "\346\211\253\346\217\217\345\205\211\350\260\261\344\273\252\345\210\227\350\241\250", nullptr));
         setChannelNumberButton->setText(QApplication::translate("Widget", "\350\256\276\347\275\256\351\200\232\351\201\223\345\217\267", nullptr));
         label_2->setText(QApplication::translate("Widget", "\347\274\226\345\217\267", nullptr));

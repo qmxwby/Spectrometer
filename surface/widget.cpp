@@ -25,6 +25,7 @@ Widget::Widget(QWidget *parent):
 {
     ui->setupUi(this);
     init();
+    timerInit();
 }
 
 Widget::~Widget()
@@ -51,7 +52,24 @@ void Widget::init(){
     dataList = ui->listWidget;
     SignLine = ui->lineEdit_2;
     dataSeriesView = ui->graphicsView;
+    intervalTimer = ui->lineEdit;
+    intervalTimer->setText("3000");
+    countTimer = ui->lineEdit_6;
+    countTimer->setText("10");
+    remainCountTimer = ui->lineEdit_7;
+    remainCountTimer->setText("0");
+    remainCountTimer->setStyleSheet(QLatin1String("color: rgb(255, 0, 0)"));
 }
+int TimerNum;
+QTimer *timer;
+void timeEvent01();
+
+void Widget::timerInit(){
+    TimerNum = 0;
+    timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(timeEvent01()));
+}
+
 // string to qstring
 QString str2Qstr(std::string str){
     QString res = QString::fromStdString(str);
@@ -112,8 +130,8 @@ void Widget::on_scanningButton_pressed()
             std::string sSN = (char*)pcSepctorInf[j].Sn;//光谱仪编号
             int iChannelNum = pcSepctorInf[j].iChannelNum;//通道号
             std::string sMode = (char*)pcSepctorInf[j].Mode;//型号
-//            float fStartWave = pcSepctorInf[j].fWaveRange[0];//起始波长
-//            float fEndWave = pcSepctorInf[j].fWaveRange[1];//结束波长
+            float fStartWave = pcSepctorInf[j].fWaveRange[0];//起始波长
+            float fEndWave = pcSepctorInf[j].fWaveRange[1];//结束波长
             std::string sDeviceName = pcSepctorInf[j].DeviceName;//设备名
             QString isSN = QString::fromStdString(sSN+"   "+std::to_string(iChannelNum));
             QString iChannelNum_str = QString::fromStdString(std::to_string(iChannelNum));
@@ -190,10 +208,10 @@ void Widget::on_pushButton_4_clicked()
      QMessageBox::information(NULL,"提示","设定成功！");
 }
 
-//获取光谱数据（能量值）
+//光谱数据（能量值）
 float fwaveData[420];
 
-
+//绘图
 void Widget::draw(){
     QLineSeries *series = new QLineSeries();
     int len = 400;
@@ -208,6 +226,7 @@ void Widget::draw(){
     dataSeriesView->setChart(chart);
 }
 
+//获取光谱数据（能量值）
 void Widget::on_pushButton_5_clicked()
 {
     if (JF_USB_GetWaveDataMux(qstr2int(channelNumberEdit->text()), 380, 780, 1, fwaveData) == 0)
@@ -219,10 +238,9 @@ void Widget::on_pushButton_5_clicked()
     dataList->clear();
     for (int i = 0; i <= 400; i++)
     {
-//          listBox1.Items.Add((380 + i) + "\t" + fwaveData[i].ToString("0"));
-        dataList->addItem(str2Qstr(std::to_string(fwaveData[i])));
+        dataList->addItem(int2qstr(380 + i)+"\t" +  QString::number(fwaveData[i], 'f', 2));
      }
-//     pictureBox1.Refresh();
+
     draw();
 }
 
@@ -265,3 +283,35 @@ void Widget::on_radioButton_2_clicked()
 }
 
 
+void Widget::timeEvent01(){
+    on_pushButton_5_clicked();
+
+    if(TimerNum>0)
+        TimerNum--;
+    if(TimerNum <= 0){
+        timer->stop();
+    }
+    remainCountTimer->setText(int2qstr(TimerNum));
+
+}
+
+void Widget::timeout_Done(){
+
+
+
+}
+
+void Widget::on_pushButton_clicked()
+{
+
+    TimerNum = qstr2int(countTimer->text());
+    remainCountTimer->setText(int2qstr(TimerNum));
+    timer->start(qstr2int(intervalTimer->text()));
+
+}
+
+void Widget::on_pushButton_2_clicked()
+{
+    TimerNum=0;
+    remainCountTimer->setText(int2qstr(TimerNum));
+}
