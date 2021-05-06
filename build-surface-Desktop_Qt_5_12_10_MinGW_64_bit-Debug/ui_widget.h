@@ -138,7 +138,8 @@ public:
     QLabel *label_14;
     QTextBrowser *textBrowser_14;
     QWidget *tab;
-    QScrollArea *scrollArea;
+    QHBoxLayout *horizontalLayout_16;
+    QScrollArea *myArea;
     QWidget *scrollAreaWidgetContents;
 
     void setupUi(QWidget *Widget)
@@ -743,14 +744,18 @@ public:
         tabWidget->addTab(params, QString());
         tab = new QWidget();
         tab->setObjectName(QString::fromUtf8("tab"));
-        scrollArea = new QScrollArea(tab);
-        scrollArea->setObjectName(QString::fromUtf8("scrollArea"));
-        scrollArea->setGeometry(QRect(330, 80, 120, 87));
-        scrollArea->setWidgetResizable(true);
+        horizontalLayout_16 = new QHBoxLayout(tab);
+        horizontalLayout_16->setObjectName(QString::fromUtf8("horizontalLayout_16"));
+        myArea = new QScrollArea(tab);
+        myArea->setObjectName(QString::fromUtf8("myArea"));
+        myArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 118, 85));
-        scrollArea->setWidget(scrollAreaWidgetContents);
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 1376, 786));
+        myArea->setWidget(scrollAreaWidgetContents);
+
+        horizontalLayout_16->addWidget(myArea);
+
         tabWidget->addTab(tab, QString());
 
         verticalLayout->addWidget(tabWidget);
@@ -758,7 +763,7 @@ public:
 
         retranslateUi(Widget);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(2);
         comboBox->setCurrentIndex(-1);
         scanningButton->setDefault(false);
         setChannelNumberButton->setDefault(false);

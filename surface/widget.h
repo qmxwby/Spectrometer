@@ -9,6 +9,7 @@
 #include <QGraphicsDropShadowEffect>
 #include <QStackedWidget>
 #include <QtCharts>
+#include <QtDataVisualization>
 #include "ChromaticsStruct.h"
 #include "FLA5000DLLStruct.h"
 #include "Inteface.h"
@@ -19,6 +20,7 @@ QT_BEGIN_NAMESPACE
 
 namespace Ui {class Widget;}
 using namespace QtCharts;
+using namespace QtDataVisualization;
 QT_END_NAMESPACE
 
 class Widget : public QWidget
@@ -57,6 +59,7 @@ private slots:
     void on_pushButton_clicked();
 
     void on_pushButton_2_clicked();
+    void draw3Dpaint();
 
 private:
     Ui::Widget *ui;

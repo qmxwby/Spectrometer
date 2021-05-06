@@ -1,5 +1,7 @@
 QT       += core gui
 QT       += charts
+QT       += datavisualization
+
 
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -12,6 +14,8 @@ CONFIG += c++11
 
 SOURCES += \
     main.cpp \
+    qfixlist.cpp \
+    surfacegraph.cpp \
     widget.cpp
 
 HEADERS += \
@@ -19,6 +23,8 @@ HEADERS += \
     ChromaticsStruct.h \
     FLA5000DLLStruct.h \
     Inteface.h \
+    qfixlist.h \
+    surfacegraph.h \
     widget.h
 
 FORMS += \
@@ -35,3 +41,6 @@ DISTFILES += \
 
 LIBS += "../build-surface-Desktop_Qt_5_12_10_MinGW_64_bit-Debug\debug\ChromaticsDll.dll"
 LIBS += "../build-surface-Desktop_Qt_5_12_10_MinGW_64_bit-Debug\debug\FLA5000DLL.dll"
+
+RESOURCES += \
+    picture.qrc
