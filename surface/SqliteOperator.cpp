@@ -101,7 +101,7 @@ QList<SpecData> SqliteOperator::queryTablelimit(int max)
 {
     QSqlQuery sqlQuery;
     QList<SpecData> specdatalist;
-    sqlQuery.exec("SELECT * FROM specdata order by date limit "+ QString::number(max));
+    sqlQuery.exec("SELECT * FROM specdata order by date DESC limit "+ QString::number(max));
     if(!sqlQuery.exec())
     {
         qDebug() << "Error: Fail to query table. " << sqlQuery.lastError();

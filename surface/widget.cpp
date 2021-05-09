@@ -464,7 +464,7 @@ void Widget::on_pushButton_5_clicked()
         spdata.wareData[i]=fwaveData[i];
      }
     sqlTest.singleInsertData(spdata);
-    //qDebug() << sqlTest.queryTablelimit(1).back().address;
+    qDebug() << sqlTest.queryTablelimit(1).back().address<<" "<<sqlTest.queryTablelimit(1).back().id<<endl;
     draw();
 }
 
