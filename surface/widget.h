@@ -14,6 +14,7 @@
 #include "FLA5000DLLStruct.h"
 #include "Inteface.h"
 #include "ChromaticsInteface.h"
+#include "SqliteOperator.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -34,10 +35,12 @@ public:
     void draw();
     void timeout_Done();
 
+
 private slots:
     void init();
     void timeEvent01();
     void timerInit();
+    void dbinit();
 
     void on_scanningButton_pressed();
 
@@ -61,6 +64,10 @@ private slots:
     void on_pushButton_2_clicked();
     void draw3Dpaint();
 
+
+
+    void on_checkBox_stateChanged(int arg1);
+
 private:
     Ui::Widget *ui;
     QListWidget *spectList;
@@ -81,6 +88,7 @@ private:
     QLineEdit *intervalTimer;
     QLineEdit *countTimer;
     QLineEdit *remainCountTimer;
+    QCheckBox *autoCheckBox;
 
 };
 #endif // WIDGET_H

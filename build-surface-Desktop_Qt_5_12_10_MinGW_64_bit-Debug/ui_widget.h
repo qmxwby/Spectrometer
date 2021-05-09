@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
@@ -72,6 +73,7 @@ public:
     QVBoxLayout *verticalLayout_8;
     QLabel *label_20;
     QLineEdit *lineEdit_7;
+    QCheckBox *checkBox;
     QWidget *layoutWidget3;
     QVBoxLayout *verticalLayout_4;
     QPushButton *scanningButton;
@@ -301,7 +303,7 @@ public:
         pushButton_2->setGeometry(QRect(260, 150, 121, 81));
         layoutWidget2 = new QWidget(groupBox_4);
         layoutWidget2->setObjectName(QString::fromUtf8("layoutWidget2"));
-        layoutWidget2->setGeometry(QRect(40, 50, 151, 77));
+        layoutWidget2->setGeometry(QRect(20, 50, 151, 77));
         verticalLayout_6 = new QVBoxLayout(layoutWidget2);
         verticalLayout_6->setObjectName(QString::fromUtf8("verticalLayout_6"));
         verticalLayout_6->setContentsMargins(0, 0, 0, 0);
@@ -319,7 +321,7 @@ public:
 
         layoutWidget_2 = new QWidget(groupBox_4);
         layoutWidget_2->setObjectName(QString::fromUtf8("layoutWidget_2"));
-        layoutWidget_2->setGeometry(QRect(210, 50, 151, 77));
+        layoutWidget_2->setGeometry(QRect(190, 50, 151, 77));
         verticalLayout_7 = new QVBoxLayout(layoutWidget_2);
         verticalLayout_7->setObjectName(QString::fromUtf8("verticalLayout_7"));
         verticalLayout_7->setContentsMargins(0, 0, 0, 0);
@@ -337,7 +339,7 @@ public:
 
         layoutWidget_3 = new QWidget(groupBox_4);
         layoutWidget_3->setObjectName(QString::fromUtf8("layoutWidget_3"));
-        layoutWidget_3->setGeometry(QRect(380, 50, 141, 77));
+        layoutWidget_3->setGeometry(QRect(360, 50, 141, 77));
         verticalLayout_8 = new QVBoxLayout(layoutWidget_3);
         verticalLayout_8->setObjectName(QString::fromUtf8("verticalLayout_8"));
         verticalLayout_8->setContentsMargins(0, 0, 0, 0);
@@ -354,6 +356,9 @@ public:
 
         verticalLayout_8->addWidget(lineEdit_7);
 
+        checkBox = new QCheckBox(groupBox_4);
+        checkBox->setObjectName(QString::fromUtf8("checkBox"));
+        checkBox->setGeometry(QRect(510, 110, 91, 19));
         layoutWidget3 = new QWidget(setting);
         layoutWidget3->setObjectName(QString::fromUtf8("layoutWidget3"));
         layoutWidget3->setGeometry(QRect(10, 26, 271, 738));
@@ -763,7 +768,7 @@ public:
 
         retranslateUi(Widget);
 
-        tabWidget->setCurrentIndex(2);
+        tabWidget->setCurrentIndex(0);
         comboBox->setCurrentIndex(-1);
         scanningButton->setDefault(false);
         setChannelNumberButton->setDefault(false);
@@ -795,6 +800,7 @@ public:
         label_17->setText(QApplication::translate("Widget", "\351\227\264\351\232\224\346\227\266\351\227\264", nullptr));
         label_19->setText(QApplication::translate("Widget", "\347\233\221\346\265\213\346\254\241\346\225\260", nullptr));
         label_20->setText(QApplication::translate("Widget", "\345\211\251\344\275\231\346\254\241\346\225\260", nullptr));
+        checkBox->setText(QApplication::translate("Widget", "\350\207\252\345\212\250\347\233\221\346\265\213", nullptr));
         scanningButton->setText(QApplication::translate("Widget", "\346\211\253\346\217\217\345\205\211\350\260\261\344\273\252\345\210\227\350\241\250", nullptr));
         setChannelNumberButton->setText(QApplication::translate("Widget", "\350\256\276\347\275\256\351\200\232\351\201\223\345\217\267", nullptr));
         label_2->setText(QApplication::translate("Widget", "\347\274\226\345\217\267", nullptr));

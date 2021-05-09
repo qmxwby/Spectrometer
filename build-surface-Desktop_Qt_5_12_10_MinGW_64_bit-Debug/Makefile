@@ -252,6 +252,7 @@ Makefile: ../surface/surface.pro ../../../../Qt/Qt5.12.10/5.12.10/mingw73_64/mks
 		../../../../Qt/Qt5.12.10/5.12.10/mingw73_64/lib/Qt5Widgets.prl \
 		../../../../Qt/Qt5.12.10/5.12.10/mingw73_64/lib/Qt5DataVisualization.prl \
 		../../../../Qt/Qt5.12.10/5.12.10/mingw73_64/lib/Qt5Gui.prl \
+		../../../../Qt/Qt5.12.10/5.12.10/mingw73_64/lib/Qt5Sql.prl \
 		../../../../Qt/Qt5.12.10/5.12.10/mingw73_64/lib/Qt5Core.prl \
 		../../../../Qt/Qt5.12.10/5.12.10/mingw73_64/lib/qtmain.prl
 	$(QMAKE) -o Makefile ..\surface\surface.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
@@ -444,6 +445,7 @@ Makefile: ../surface/surface.pro ../../../../Qt/Qt5.12.10/5.12.10/mingw73_64/mks
 ../../../../Qt/Qt5.12.10/5.12.10/mingw73_64/lib/Qt5Widgets.prl:
 ../../../../Qt/Qt5.12.10/5.12.10/mingw73_64/lib/Qt5DataVisualization.prl:
 ../../../../Qt/Qt5.12.10/5.12.10/mingw73_64/lib/Qt5Gui.prl:
+../../../../Qt/Qt5.12.10/5.12.10/mingw73_64/lib/Qt5Sql.prl:
 ../../../../Qt/Qt5.12.10/5.12.10/mingw73_64/lib/Qt5Core.prl:
 ../../../../Qt/Qt5.12.10/5.12.10/mingw73_64/lib/qtmain.prl:
 qmake: FORCE

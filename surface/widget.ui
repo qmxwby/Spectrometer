@@ -32,7 +32,7 @@
       <enum>QTabWidget::Triangular</enum>
      </property>
      <property name="currentIndex">
-      <number>2</number>
+      <number>0</number>
      </property>
      <property name="iconSize">
       <size>
@@ -373,7 +373,7 @@
        <widget class="QWidget" name="layoutWidget">
         <property name="geometry">
          <rect>
-          <x>40</x>
+          <x>20</x>
           <y>50</y>
           <width>151</width>
           <height>77</height>
@@ -405,7 +405,7 @@
        <widget class="QWidget" name="layoutWidget_2">
         <property name="geometry">
          <rect>
-          <x>210</x>
+          <x>190</x>
           <y>50</y>
           <width>151</width>
           <height>77</height>
@@ -437,7 +437,7 @@
        <widget class="QWidget" name="layoutWidget_3">
         <property name="geometry">
          <rect>
-          <x>380</x>
+          <x>360</x>
           <y>50</y>
           <width>141</width>
           <height>77</height>
@@ -468,6 +468,19 @@
           </widget>
          </item>
         </layout>
+       </widget>
+       <widget class="QCheckBox" name="checkBox">
+        <property name="geometry">
+         <rect>
+          <x>510</x>
+          <y>110</y>
+          <width>91</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>自动监测</string>
+        </property>
        </widget>
       </widget>
       <widget class="QWidget" name="layoutWidget">

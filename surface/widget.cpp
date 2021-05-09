@@ -23,6 +23,7 @@
 #include <QtDataVisualization>
 #include <q3dsurface.h>
 #include <QTimer>
+#include<SqliteOperator.h>
 
 // 构造函数
 Widget::Widget(QWidget *parent):
@@ -32,6 +33,7 @@ Widget::Widget(QWidget *parent):
     ui->setupUi(this);
     init();
     timerInit();
+    dbinit();
 }
 
 Widget::~Widget()
@@ -61,10 +63,14 @@ void Widget::init(){
     intervalTimer = ui->lineEdit;
     intervalTimer->setText("3000");
     countTimer = ui->lineEdit_6;
-    countTimer->setText("10");
+    countTimer->setText("-");
+    countTimer->setEnabled(false);
     remainCountTimer = ui->lineEdit_7;
-    remainCountTimer->setText("0");
+    remainCountTimer->setEnabled(false);
     remainCountTimer->setStyleSheet(QLatin1String("color: rgb(255, 0, 0)"));
+    autoCheckBox = ui->checkBox;
+    autoCheckBox->setChecked(true);
+    remainCountTimer->setText("0");
     draw3Dpaint();
 }
 int TimerNum;
@@ -75,6 +81,18 @@ void Widget::timerInit(){
     TimerNum = 0;
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(timeEvent01()));
+}
+
+SqliteOperator sqlTest;
+void Widget::dbinit(){
+    //创建并打开SQLite数据库
+        sqlTest.openDb();
+    //如果数据表不存在创建数据表
+        QString str1 = QString("specdata");
+        if(!sqlTest.isTableExist(str1)){
+            sqlTest.createTable();
+        }
+
 }
 
 // string to qstring
@@ -410,12 +428,12 @@ void Widget::on_pushButton_4_clicked()
 }
 
 //光谱数据（能量值）
-float fwaveData[420];
+float fwaveData[650];
 
 //绘图
 void Widget::draw(){
     QLineSeries *series = new QLineSeries();
-    int len = 400;
+    int len = 650;
     for(int i = 1; i <= len; i++){
         series->append(i,fwaveData[i-1]);
     }
@@ -430,18 +448,23 @@ void Widget::draw(){
 //获取光谱数据（能量值）
 void Widget::on_pushButton_5_clicked()
 {
-    if (JF_USB_GetWaveDataMux(qstr2int(channelNumberEdit->text()), 380, 780, 1, fwaveData) == 0)
+    if (JF_USB_GetWaveDataMux(qstr2int(channelNumberEdit->text()), 200, 850, 1, fwaveData) == 0)
     {
           QMessageBox::information(NULL,"提示","采集1失败！");
           return;
     }
 
+    SpecData spdata;
+    spdata.address="湖北省宜昌市西陵区";
+    spdata.date= QDateTime::currentDateTime();
     dataList->clear();
-    for (int i = 0; i <= 400; i++)
+    for (int i = 0; i <= 650; i++)
     {
-        dataList->addItem(int2qstr(380 + i)+"\t" +  QString::number(fwaveData[i], 'f', 2));
+        dataList->addItem(int2qstr(200 + i)+"\t" +  QString::number(fwaveData[i], 'f', 2));
+        spdata.wareData[i]=fwaveData[i];
      }
-
+    sqlTest.singleInsertData(spdata);
+    //qDebug() << sqlTest.queryTablelimit(1).back().address;
     draw();
 }
 
@@ -475,7 +498,7 @@ void Widget::on_radioButton_2_clicked()
                 QMessageBox::information(NULL,"提示","设置失败！");
                 return;
          }
-         float fwaveData[420];
+         float fwaveData[650];
          JF_USB_GetWaveDataMux(qstr2int(channelNumberEdit->text()), 380, 780, 1, fwaveData);
          softTouchButton->setEnabled(false);
          getsignButton->setEnabled(true);
@@ -489,10 +512,15 @@ void Widget::timeEvent01(){
 
     if(TimerNum>0)
         TimerNum--;
-    if(TimerNum <= 0){
+    if(TimerNum == 0){
         timer->stop();
     }
-    remainCountTimer->setText(int2qstr(TimerNum));
+
+
+    if(TimerNum<0){
+        remainCountTimer->setText("-");
+    }
+    else remainCountTimer->setText(int2qstr(TimerNum));
 
 }
 
@@ -505,7 +533,12 @@ void Widget::timeout_Done(){
 void Widget::on_pushButton_clicked()
 {
 
-    TimerNum = qstr2int(countTimer->text());
+    if(countTimer->text()=="-"){
+        TimerNum = -1;
+        remainCountTimer->setText("-");
+    }else{
+        TimerNum = qstr2int(countTimer->text());
+    }
     remainCountTimer->setText(int2qstr(TimerNum));
     timer->start(qstr2int(intervalTimer->text()));
 
@@ -515,4 +548,19 @@ void Widget::on_pushButton_2_clicked()
 {
     TimerNum=0;
     remainCountTimer->setText(int2qstr(TimerNum));
+}
+
+
+
+void Widget::on_checkBox_stateChanged(int arg1)
+{
+    if(arg1 == Qt::Checked){
+        countTimer->setText("-");
+        countTimer->setEnabled(false);
+        remainCountTimer->setText("-");
+    }else{
+        countTimer->setText("0");
+        countTimer->setEnabled(true);
+        remainCountTimer->setText("0");
+    }
 }
